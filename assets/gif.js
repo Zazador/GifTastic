@@ -4,9 +4,9 @@ $(document).ready(function(){
 var games = ["World of Warcraft", "Pokemon", "Mario", "Starcraft", "Overwatch", "Hearthstone", "Neopets", "Digimon",
 "Final Fantasy", "Sonic", "Dark Souls"];
 
-game();
+initialButtons();
 
-function game() {
+function initialButtons() {
 	for (var i = 0; i < games.length; i++) {
 		var gifHolder = $("<button/>").attr({
 			type: "button",
@@ -16,5 +16,30 @@ function game() {
 		$("#gifDiv").append(gifHolder);
 	}
 }
+
+$("#newGame").click(function() {
+    var newGame = $("#newCat").val();
+    $("#newCat").val("");
+    var gifHolder = $("<button/>").attr({
+			type: "button"
+		});
+		$(gifHolder).text(newGame);
+		$("#gifDiv").append(gifHolder);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 });
