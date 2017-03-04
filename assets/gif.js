@@ -11,7 +11,8 @@ $(document).ready(function(){
 			var gifHolder = $("<button/>").attr({
 				type: "button",
 				name: "btn_"+i,
-				id: "gameButton"
+				id: "gameButton",
+				class: "btn btn-default"
 			});
 			$(gifHolder).text(games[i]);
 			$("#gifButtons").append(gifHolder);
@@ -26,7 +27,8 @@ $(document).ready(function(){
 			$("#newCat").val("");
 			var gifHolder = $("<button/>").attr({
 				type: "button",
-				id: "newGameButton"
+				id: "newGameButton",
+				class: "btn btn-default"
 			});
 			$(gifHolder).text(newGame);
 			$("#gifButtons").append(gifHolder);
@@ -84,25 +86,11 @@ $("#gifButtons").on("click", "button", function() {
               gifDiv.append(p);
               gifDiv.append(videogameGif);
 
-              // Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
-              $("#gifDiv").prepend(gifDiv);
+              // Prepending the gifDiv to the "#gifDiv" div in the HTML
+              $("#gifDiv").append(gifDiv);
           }
       }
   });
     }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 });
