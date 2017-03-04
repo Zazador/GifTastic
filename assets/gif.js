@@ -26,7 +26,7 @@ $(document).ready(function(){
 			$("#newCat").val("");
 			var gifHolder = $("<button/>").attr({
 				type: "button",
-				id: "gameButton"
+				id: "newGameButton"
 			});
 			$(gifHolder).text(newGame);
 			$("#gifButtons").append(gifHolder);
@@ -34,7 +34,7 @@ $(document).ready(function(){
 	});
 
 // Event listener for all button elements
-$("button").on("click", "#gameButton", function() {
+$("#gifButtons").on("click", "button", function() {
 	console.log("buttonClicked");
 	if ($(this).attr('id') === "newGame") {
 		return;
@@ -73,16 +73,16 @@ $("button").on("click", "#gameButton", function() {
               var p = $("<p>").text("Rating: " + rating);
 
               // Creating an image tag
-              var personImage = $("<img>");
+              var videogameGif = $("<img>");
 
               // Giving the image tag an src attribute of a proprty pulled off the
               // result item
-              personImage.attr("src", results[i].images.fixed_height.url);
-              personImage.attr("style", "display: inline-block");
+              videogameGif.attr("src", results[i].images.fixed_height.url);
+              videogameGif.attr("style", "display: inline-block");
 
-              // Appending the paragraph and personImage we created to the "gifDiv" div we created
+              // Appending the paragraph and videogameGif we created to the "gifDiv" div we created
               gifDiv.append(p);
-              gifDiv.append(personImage);
+              gifDiv.append(videogameGif);
 
               // Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
               $("#gifDiv").prepend(gifDiv);
