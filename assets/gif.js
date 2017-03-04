@@ -35,6 +35,21 @@ $(document).ready(function(){
 		}
 	});
 
+	$("#gifDiv").on("click", "img", function() {
+      // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
+      var state = $(this).attr("data-state");
+      // If the clicked image's state is still, update its src attribute to what its data-animate value is.
+      // Then, set the image's data-state to animate
+      // Else set src to the data-still value
+      if (state === "still") {
+        $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-state", "animate");
+      } else {
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still");
+      }
+    });
+
 // Event listener for all button elements
 $("#gifButtons").on("click", "button", function() {
 	console.log("buttonClicked");
@@ -75,12 +90,12 @@ $("#gifButtons").on("click", "button", function() {
               var p = $("<p>").text("Rating: " + rating);
 
               // Creating an image tag
-              var videogameGif = $("<img>");
-
-              // Giving the image tag an src attribute of a proprty pulled off the
-              // result item
-              videogameGif.attr("src", results[i].images.fixed_height.url);
-              videogameGif.attr("style", "display: inline-block");
+              var videogameGif = $("<img>").attr({
+              	"data-state": "still",
+              	src: results[i].images.fixed_height_still.url,
+              	"data-animate":  results[i].images.fixed_height.url,
+              	"data-still": results[i].images.fixed_height_still.url
+              });
 
               // Appending the paragraph and videogameGif we created to the "gifDiv" div we created
               gifDiv.append(p);
