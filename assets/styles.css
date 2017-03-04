@@ -1,0 +1,22 @@
+body {
+	background-image: url("../images/background.jpg");
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+h1 {
+	font-size: 50px;
+	color: white;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+	text-align: center;
+	font-family: 'Audiowide', cursive;
+}
+
+td {
+	font-family: 'Audiowide', cursive;
+	color: white;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    text-align: center;
+    font-size: 20px;
+}
