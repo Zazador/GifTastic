@@ -36,30 +36,27 @@ $(document).ready(function(){
 	});
 
 	$("#gifDiv").on("click", "img", function() {
-      // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
-      var state = $(this).attr("data-state");
+		var state = $(this).attr("data-state");
       // If the clicked image's state is still, update its src attribute to what its data-animate value is.
       // Then, set the image's data-state to animate
       // Else set src to the data-still value
       if (state === "still") {
-        $(this).attr("src", $(this).attr("data-animate"));
-        $(this).attr("data-state", "animate");
+      	$(this).attr("src", $(this).attr("data-animate"));
+      	$(this).attr("data-state", "animate");
       } else {
-        $(this).attr("src", $(this).attr("data-still"));
-        $(this).attr("data-state", "still");
+      	$(this).attr("src", $(this).attr("data-still"));
+      	$(this).attr("data-state", "still");
       }
-    });
+  });
 
-// Event listener for all button elements
-$("#gifButtons").on("click", "button", function() {
-	console.log("buttonClicked");
-	if ($(this).attr('id') === "newGame") {
-		return;
-	} else {
-		$("#gifDiv").empty();
-      // In this case, the "this" keyword refers to the button that was clicked
-      var game = $(this).text();
-      console.log(game);
+	$("#gifButtons").on("click", "button", function() {
+		console.log("buttonClicked");
+		if ($(this).attr('id') === "newGame") {
+			return;
+		} else {
+			$("#gifDiv").empty();
+			var game = $(this).text();
+			console.log(game);
 
       // Constructing a URL to search Giphy for the name of the person who said the quote
       var queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
